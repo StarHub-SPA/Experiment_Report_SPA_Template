@@ -1,6 +1,4 @@
-# Experiment_Report_SPA_Template
-
-实验报告
+# Experiment Report SPA Template 实验报告模板
 
 个人信息可以在导言区配置好默认格式
 
