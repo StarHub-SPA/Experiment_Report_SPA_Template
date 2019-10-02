@@ -1,4 +1,4 @@
-\documentclass[no-math]{ctexart}
+\documentclass[no-math , zihao = -4]{ctexart}
 
 %====使用字体====%
 \setCJKmainfont[BoldFont = {Songti SC Black}]{Songti SC} %中文字体使用宋体
@@ -7,21 +7,130 @@
 
 %====ctex文档设置====%
 \ctexset{
-    punct = banjiao
+    punct = banjiao,
+    % zihao = -4
+}
+
+%====geometry版面设置====%
+\usepackage{geometry}
+\geometry{
+    scale = {0.8,0.8},
+    centering
+}
+
+%====页眉/脚设置====%
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhf{} %清空默认的页眉/脚
+
+\fancyhead[L]{\heiti \footnotesize \biaoti} %左页眉使用小五黑体显示实验标题。
+\fancyhead[R]{\heiti \footnotesize \leftmark}
+\fancyfoot[C]{\heiti \footnotesize 第\textbf{\thepage}页\\共 \pageref*{LastPage} 页}
+
+
+%====浮动体标题====%
+\usepackage{floatrow} %全局设置图标题在下、表标题在上。
+\floatsetup[table]{capposition=top}
+\floatsetup[figure]{capposition=bottom}
+\usepackage{caption} %对于标题属性如：字体、前缀、分隔的设置
+\captionsetup{
+    labelformat = parens,
+    labelsep = colon,
+    tableposition = bottom,
+    figureposition = bottom,
+    font = small
+}
+
+
+%====交叉引用格式====%
+\usepackage[colorlinks=false]{hyperref} %一个强大且多元的宏包，交叉引用前的前缀名，由于某些原因，只能想到蠢方法去定义。
+\renewcommand{\figureautorefname}{\figurename}
+\renewcommand{\tableautorefname}{\tablename}
+\renewcommand{\partautorefname}{\partname}
+\renewcommand{\appendixautorefname}{\appendixname}
+\renewcommand{\equationautorefname}{\equationname}
+\renewcommand{\itemautorefname}{\itemname}
+\renewcommand{\chapterautorefname}{\chaptername}
+\renewcommand{\sectionautorefname}{\sectionname}
+\renewcommand{\subsectionautorefname}{\subsectionname}
+\renewcommand{\subsubsectionautorefname}{\subsubsectionname}
+\renewcommand{\paragraphautorefname}{\paragraphname}
+\renewcommand{\Hfootnoteautorefname}{\Hfootnotename}
+\renewcommand{\AMSautorefname}{\AMSname}
+\renewcommand{\theoremautorefname}{\theoremname}
+\renewcommand{\pageautorefname}{\pagename}
+
+\hypersetup{
+    hidelinks,
+    CJKbookmarks = true,
+    bookmarksopen = true,
+    bookmarksnumbered = true
+    pdftitle = 实验3
 }
 
 
 
+%====特制环境====%
+\usepackage[dvipsnames]{xcolor}
+\usepackage[many]{tcolorbox}
+\newtheorem{ans}{回答}[enumi]
+\tcolorboxenvironment{ans}{
+  boxrule=0pt,
+  boxsep=2pt,
+  colback={White!90!Cerulean},
+  enhanced jigsaw, 
+  borderline west={2pt}{0pt}{Cerulean},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  breakable,
+}
+
+
+%====预设命令====%
+\newcommand{\biaoti}{CC1+A 热辐射的测量设计性实验}
+
 
 \begin{document}
-    
+    \section{嘻嘻}
+    \subsection{hehexixihaha}
     Let's begin with the fontstyle.\par
     \textbf{Let's begin with the fontstyle.}\par
     \textit{Let's begin with the fontstyle.}\par
-    字如其人\par
+    字如其人\autoref{fig:你好}\par
     \textbf{字如其人}\par
+    \section{真的是}
     \textit{字如其人}\par
     \begin{equation}
         3\lambda \cdots \alpha = 23 degree \times \sqrt{1+2}
     \end{equation}
-\end{document}
+
+    \begin{enumerate}
+        \item 思考题1
+        \begin{ans}
+            copy大法
+        \end{ans}
+        
+        \item 思考题2
+        \begin{ans}
+            我在搞计数器！！！！！
+        \end{ans}
+    \end{enumerate}
+    
+    \begin{table}[h]
+        \centering
+        xixixhahah
+        \caption{总得要有些示例}
+    \end{table}
+
+    \begin{figure}[h]
+        dsajkndakj
+        \caption{你好}
+        \label{fig:你好}
+    \end{figure}
+    \newpage
+    
+    uiui
+    \end{document}
