@@ -1,4 +1,13 @@
-\documentclass[no-math , zihao = -4]{ctexart}
+\documentclass[no-math,zihao = -4]{ctexart} %由于前置宏包的需求，强烈建议使用ctexart且加上"no-math,zihao = -4"的设置。
+
+%====其他有用的宏包====%
+\usepackage{tabularx} %画均分表格
+\usepackage{amsmath} %数学
+\usepackage{amssymb}
+\usepackage{bm} %便捷使用数学模式中的字母
+\usepackage{mathrsfs}%使用花体字 命令\mathscr
+\usepackage{subfigure}
+\usepackage{booktabs}
 
 %====使用字体====%
 \setCJKmainfont[BoldFont = {Songti SC Black}]{Songti SC} %中文字体使用宋体
@@ -7,15 +16,14 @@
 
 %====ctex文档设置====%
 \ctexset{
-    punct = banjiao,
-    % zihao = -4
+    punct = banjiao, %使用半角标点符号
 }
 
 %====geometry版面设置====%
 \usepackage{geometry}
 \geometry{
-    scale = {0.8,0.8},
-    centering
+    scale = {0.8,0.8}, %layout区域上下边界与左右边界占纸张的0.8
+    centering %layout居中
 }
 
 %====页眉/脚设置====%
@@ -25,15 +33,16 @@
 
 \fancyhf{} %清空默认的页眉/脚
 
-\fancyhead[L]{\heiti \footnotesize \biaoti} %左页眉使用小五黑体显示实验标题。
-\fancyhead[R]{\heiti \footnotesize \leftmark}
-\fancyfoot[C]{\heiti \footnotesize 第\textbf{\thepage}页\\共 \pageref*{LastPage} 页}
+\fancyhead[L]{\heiti \footnotesize \exptitle} %左页眉使用小五黑体显示实验标题。
+\fancyhead[R]{\heiti \footnotesize \leftmark} %右页眉显示section
+\fancyfoot[C]{\heiti \footnotesize 第\textbf{\thepage}页\\共 \pageref*{LastPage} 页} %中页脚显示页数
 
 
 %====浮动体标题====%
 \usepackage{floatrow} %全局设置图标题在下、表标题在上。
 \floatsetup[table]{capposition=top}
 \floatsetup[figure]{capposition=bottom}
+
 \usepackage{caption} %对于标题属性如：字体、前缀、分隔的设置
 \captionsetup{
     labelformat = parens,
@@ -45,7 +54,7 @@
 
 
 %====交叉引用格式====%
-\usepackage[colorlinks=false]{hyperref} %一个强大且多元的宏包，交叉引用前的前缀名，由于某些原因，只能想到蠢方法去定义。
+\usepackage{hyperref} %一个强大且多元的宏包，交叉引用前的前缀名，由于某些原因，只能想到蠢方法去定义。
 \renewcommand{\figureautorefname}{\figurename}
 \renewcommand{\tableautorefname}{\tablename}
 \renewcommand{\partautorefname}{\partname}
@@ -63,19 +72,21 @@
 \renewcommand{\pageautorefname}{\pagename}
 
 \hypersetup{
-    hidelinks,
-    CJKbookmarks = true,
-    bookmarksopen = true,
-    bookmarksnumbered = true
-    pdftitle = 实验3
+    hidelinks, %隐藏超链接的炫酷色彩
+    CJKbookmarks = true, %启用书签
+    bookmarksopen = true, %字面上是书签展开，但真实功能未知
+    bookmarksnumbered = true %书签标注编号（按计数器标注）
 }
 
+%====公式====%
+\numberwithin{equation}{section}% 公式按章节分
 
 
 %====特制环境====%
 \usepackage[dvipsnames]{xcolor}
 \usepackage[many]{tcolorbox}
-\newtheorem{ans}{回答}[enumi]
+
+\newtheorem{ans}{回答}[enumi] %answer环境
 \tcolorboxenvironment{ans}{
   boxrule=0pt,
   boxsep=2pt,
@@ -88,49 +99,104 @@
   breakable,
 }
 
+\newtheorem{conc}{结论}[section] %conclusion
+\tcolorboxenvironment{conc}{
+  boxrule=0pt,
+  boxsep=2pt,
+  colback={White!90!Dandelion},
+  enhanced jigsaw, 
+  borderline west={2pt}{0pt}{Dandelion},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  breakable,
+}
+
 
 %====预设命令====%
-\newcommand{\biaoti}{CC1+A 热辐射的测量设计性实验}
+\newcommand{\at}[1]{\renewcommand{\arraystretch}{#1}} %做表格时调节行距便捷一些
+\newcommand{\ct}{\centering} %居中更迅速
+
+%====待填信息，这部分内容请使用时据实际修改第二个大括号的内容====%
+\newcommand{\exptitle}{CC1+A 热辐射的测量设计性实验} %建议输入完整的实验名称
+\newcommand{\stid}{1XXXXXXX} %输入自己的学号
+\newcommand{\major}{XX学} %填入专业信息：如"物理学"
+\newcommand{\grade}{20XX级} %年级
+\newcommand{\name}{张三} %你的名字
 
 
+%====正文处模版（非固定样式）====%
 \begin{document}
-    \section{嘻嘻}
-    \subsection{hehexixihaha}
-    Let's begin with the fontstyle.\par
-    \textbf{Let's begin with the fontstyle.}\par
-    \textit{Let's begin with the fontstyle.}\par
-    字如其人\autoref{fig:你好}\par
-    \textbf{字如其人}\par
-    \section{真的是}
-    \textit{字如其人}\par
-    \begin{equation}
-        3\lambda \cdots \alpha = 23 degree \times \sqrt{1+2}
-    \end{equation}
 
-    \begin{enumerate}
-        \item 思考题1
-        \begin{ans}
-            copy大法
-        \end{ans}
-        
-        \item 思考题2
-        \begin{ans}
-            我在搞计数器！！！！！
-        \end{ans}
-    \end{enumerate}
-    
-    \begin{table}[h]
-        \centering
-        xixixhahah
-        \caption{总得要有些示例}
-    \end{table}
+\begin{center}
+    \at{1.8}
+    \begin{tabularx}{0.9 \textwidth}{|*{8}{>{\centering \arraybackslash}X|}}
+        \specialrule{0em}{0.3cm}{0cm}
+        \hline
+        \multicolumn{2}{|c|}{\Large 预习实验} & \multicolumn{2}{c|}{\Large 实验记录}& \multicolumn{2}{c|}{\Large 分析讨论} & \multicolumn{2}{c|}{\Large 总成绩} \\
+        \hline
+        &&&&&&& \\
+        \hline
+        \specialrule{0em}{0.3cm}{0cm}
+    \end{tabularx}
 
-    \begin{figure}[h]
-        dsajkndakj
-        \caption{你好}
-        \label{fig:你好}
-    \end{figure}
-    \newpage
+    \at{1.3}
+    \begin{tabularx}{0.9 \textwidth}{|p{2cm}<{\ct}|p{4.5cm}<{\ct}|p{3cm}<{\ct}|X<{\ct}|}
+        \hline
+        {专业}： & {\major} & {年级：}   & {\grade} \\
+        \hline
+        {姓名：} & {\name}  & {学号：}   & {\stid} \\
+        \hline
+        {日期：} & {\today} & {教师签名：}& \\
+        \hline
+        \specialrule{0em}{0.6cm}{0cm}
+    \end{tabularx}
+\end{center}
+
+\begin{center}
+    \Large \exptitle
+\end{center}
+
+
+%前置预设表格结束
+
+\section{背景介绍}
+    按个人习惯这里会放一些如保密信息发展史之类、半导体对科技发展对贡献之类的话语。小小篇幅不成敬意。
     
-    uiui
-    \end{document}
+    \subsection{实验目的}
+        \begin{enumerate}
+            \item 第一个目的
+            \item 第二个阴谋
+        \end{enumerate}
+
+    \subsection{实验仪器}
+        \begin{center}
+            \begin{tabular}[c]{cccc}
+                \toprule
+                    编号   &仪器用具名称 &  数量   &主要参数（型号，规格等）\\ 
+                \midrule
+                    1    & 准直激光器   & 2 & 波长：404nm，最大功率：150mW  \\ 
+                    2    & 偏振分光棱镜  & 2 & 波长：404nm，消光比＞500 \\ 
+                \bottomrule
+            \end{tabular}
+            \captionof{table}{量子叠加与经典混合差异的用具}
+            \label{tab:实验用具}
+        \end{center}
+
+    \subsection{实验注意事项}
+        \begin{enumerate}
+            \item 注意人生安全
+            \item 记得吃饭
+            \item 记得睡觉
+            \item 记得喝水
+            \item 记得呼吸
+        \end{enumerate}
+\section{原理概述}
+\section{实验步骤}
+
+
+
+
+
+
+\end{document}
