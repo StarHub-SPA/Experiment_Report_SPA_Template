@@ -28,7 +28,7 @@ ans环境采用的计数器附属于``enumerate``环境，conc的计数器为独
 ## 宏包使用教程
 需要前置要求，使用宏包前先检查几个事情：
 - 你的电脑**完整**的安装了较新版本 2015+ 的TeX发行版
-- *documentclass*使用`ctexart`并且设置`no-math,zihao = -4`
+- *documentclass* 使用`ctexart`并且设置`no-math,zihao = -4`
 ```tex 
 \documentclass[no-math,zihao = -4]{ctexart}
 ```
