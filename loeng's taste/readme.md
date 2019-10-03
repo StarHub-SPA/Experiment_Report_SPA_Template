@@ -58,14 +58,16 @@ ans环境采用的计数器附属于``enumerate``环境，conc的计数器为独
 - 至此，你可以开心的写实验报告了。示例：`simple.tex`
 ---
 ## 宏包所调用的其他宏包
-- `tabularx`  制作表格时单元格自动同一宽度
-- `amsmath`   更好的数学环境
-- `amssymb`   更好的数学符号
-- `bm`        数学环境中字母粗体
-- `mathrsfs`  使用花体字 命令`\mathscr`
-- `subfigure` 插入子图片
-- `booktabs`  使用三线表的三横线
-- `graphicx`  使用\includegraphics 命令插入图片
+|宏包名称|功能|
+|:--:|:--:|
+|`tabularx`  |制作表格时单元格自动同一宽度
+|`amsmath`   |更好的数学环境
+|`amssymb`   |更好的数学符号
+|`bm`        |数学环境中字母粗体
+|`mathrsfs`  |使用花体字 命令`\mathscr`
+|`subfigure` |插入子图片
+|`booktabs`  |使用三线表的三横线
+|`graphicx`  |使用\includegraphics 命令插入图片
 
 ---
 
@@ -74,8 +76,6 @@ ans环境采用的计数器附属于``enumerate``环境，conc的计数器为独
 感谢！
 
 
->SPA ExpTemplate v1.0.
->
->Created by loeng 
->
->Email：liangwd23@mail2.sysu.edu.cn
+>SPA ExpTemplate v1.0.  
+>Created by loeng   
+>Email：liangwd23@mail2.sysu.edu.cn  
