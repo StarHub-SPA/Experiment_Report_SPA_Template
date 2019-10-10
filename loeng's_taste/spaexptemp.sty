@@ -19,8 +19,16 @@
 
 \ProvidesPackage{spaexptemp}[2019/10/03]
 
+%====check====%
+\usepackage{ifxetex}
+\ifxetex\else
+\ClassError{mcmthesis}{You must use the `xelatex' driver\MessageBreak Please choose `xelatex'}{%
+Just choose `xelatex', no `pdflatex' or `latex' and so on.}
+\fi
+
+
 %====其他有用的宏包====%
-\usepackage{floatrow}
+\usepackage{floatrow} %图表调节标题位置
 \floatsetup[table]{capposition=top}
 \floatsetup[figure]{capposition=bottom}
 
@@ -33,12 +41,41 @@
 \usepackage{booktabs} %使用三横线
 \usepackage{graphicx} %使用\includegraphics 命令插入图片
 
-%====使用字体====%
+%====使用字体====%（代码参考https://github.com/OsbertWang/GMCMthesis
+\newif\ifmcm@mac
+\newif\ifmcm@windows
+% \newif\ifmcm@fandol
+
+\@ifclasslater{ctexart}{}{
+  \newcommand\mcm@strifeq{\csname str_if_eq_x:nnTF\endcsname}
+  \newcommand\mcm@fontset{\csname g__ctex_fontset_tl\endcsname}
+  \mcm@strifeq{\mcm@fontset}{mac}{\mcm@mactrue}{}
+  \mcm@strifeq{\mcm@fontset}{windows}{\mcm@windowstrue}{}
+%   \mcm@strifeq{\mcm@fontset}{fandol}{\mcm@fandoltrue}{}
+}{
+  \mcm@windowstrue
+}
+
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\ifmcm@mac
+    \setmonofont[Scale=MatchLowercase]{Menlo}
+    \setCJKmainfont[BoldFont = {Songti SC Black}]{Songti SC} %MacOS: 中文字体使用宋体
+
+\else
+\ifmcm@windows
+    \setmonofont[Scale=MatchLowercase]{Courier New}
+    \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
+
+    \fi
+\fi
+
+
 % \setCJKmainfont[BoldFont = {Songti SC Black}]{Songti SC} %MacOS: 中文字体使用宋体
 % \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
-\setCJKmainfont[]{SimSun} %中文字体使用宋体
-\setmainfont{Times New Roman} %英文字体设置为Times New Roman
-\usepackage{euler} %使用euler字体
+% \setCJKmainfont[]{SimSun} %中文字体使用宋体
+% \setmainfont{Times New Roman} %英文字体设置为Times New Roman
+\usepackage{fouriernc} %使用fouriernc字体
 
 %====ctex文档设置====%
 \ctexset{
@@ -98,7 +135,9 @@
 \renewcommand{\pageautorefname}{\pagename}
 
 \hypersetup{
-    hidelinks, %隐藏超链接的炫酷色彩
+    % hidelinks, %隐藏超链接的炫酷色彩
+    colorlinks = true, %开启超链接有颜色
+    linkcolor  = cyan, %设置超链接颜色为青色。
     CJKbookmarks = true, %启用书签
     bookmarksopen = true, %字面上是书签展开，但真实功能未知
     bookmarksnumbered = true, %书签标注编号（按计数器标注）
@@ -143,7 +182,7 @@
 \newcommand{\ct}{\centering} %居中更迅速
 \newcommand{\ar}{\arraybackslash} %tabularx中正确换行的设置
 
-\newcommand{\kaitou}{
+\newcommand{\kaitou}{ %快速完成开头表格
     \begin{center}
         \at{1.8}
         \begin{tabularx}{0.9 \textwidth}{|*{8}{>{\ct \ar}X|}}
