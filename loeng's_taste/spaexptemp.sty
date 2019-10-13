@@ -94,11 +94,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
+\usepackage{appendix}   % 附录(放太前会使得section页眉消失(除了参考文献))
+
 \fancyhf{} %清空默认的页眉/脚
 
 \fancyhead[L]{\heiti \footnotesize \exptitle} %左页眉使用小五黑体显示实验标题。
 \fancyhead[R]{\heiti \footnotesize \leftmark} %右页眉显示section
-\fancyfoot[C]{\heiti \footnotesize 第\textbf{\thepage}页\\共 \pageref*{LastPage} 页} %中页脚显示页数
+\fancyfoot[C]{\heiti \footnotesize \textbf{\thepage} / \pageref*{LastPage}} %中页脚显示页数
 
 
 %====浮动体标题====%
@@ -150,7 +152,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[many]{tcolorbox}
 
-\newtheorem{ans}{回答}[enumi] %answer环境
+\newtheorem{ans}{{\color{Cerulean}Answer}}[enumi] %answer环境
 \tcolorboxenvironment{ans}{
   boxrule=0pt,
   boxsep=2pt,
@@ -182,7 +184,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand{\ct}{\centering} %居中更迅速
 \newcommand{\ar}{\arraybackslash} %tabularx中正确换行的设置
 
-\newcommand{\kaitou}{ %快速完成开头表格
+\newcommand{\reporttablehead}{ %快速完成开头表格
     \begin{center}
         \at{1.8}
         \begin{tabularx}{0.9 \textwidth}{|*{8}{>{\ct \ar}X|}}
@@ -209,6 +211,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \end{center}
     
     \begin{center}
-        \Large \exptitle
+        \Large \textbf{\exptitle}        
     \end{center}
 }
