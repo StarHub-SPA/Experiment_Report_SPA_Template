@@ -17,6 +17,8 @@
 % 这个宏包中的部分设置参考了：梁伟棠、王本然 的实验模版，以及Adhumunt 的 NotesTeX 在此表示谢意。
 %================================================================================
 
+% Branch: Benature
+
 \ProvidesPackage{spaexptemp}[2019/10/03]
 
 %====check====%
@@ -28,9 +30,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 
 %====其他有用的宏包====%
-\usepackage{floatrow} %图表调节标题位置
-\floatsetup[table]{capposition=top}
-\floatsetup[figure]{capposition=bottom}
+% \usepackage{floatrow} %图表调节标题位置
+% \floatsetup[table]{capposition=top}
+% \floatsetup[figure]{capposition=bottom}
 
 \usepackage{tabularx} %画均分表格
 \usepackage{amsmath} %数学
@@ -101,12 +103,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \fancyhead[L]{\heiti \footnotesize \exptitle} %左页眉使用小五黑体显示实验标题。
 \fancyhead[R]{\heiti \footnotesize \leftmark} %右页眉显示section
 \fancyfoot[C]{\heiti \footnotesize \textbf{\thepage} / \pageref*{LastPage}} %中页脚显示页数
-
-
-%====浮动体标题====%
-\usepackage{floatrow} %全局设置图标题在下、表标题在上。
-\floatsetup[table]{capposition=top}
-\floatsetup[figure]{capposition=bottom}
 
 \usepackage{caption} %对于标题属性如：字体、前缀、分隔的设置
 \captionsetup{
