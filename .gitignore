@@ -5,3 +5,7 @@
 *.synctex(busy)
 *.out
 *.toc
+
+#mac
+.DS_Store
+**/.DS_Store
