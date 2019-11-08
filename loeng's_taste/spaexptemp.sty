@@ -34,17 +34,17 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 % \floatsetup[table]{capposition=top}
 % \floatsetup[figure]{capposition=bottom}
 
-\usepackage{tabularx} %画均分表格
-\usepackage{amsmath} %数学
+\usepackage{tabularx}  %画均分表格
+\usepackage{amsmath}   %数学
 \usepackage{amssymb}
-\usepackage{bm} %便捷使用数学模式中的字母
-\usepackage{mathrsfs}%使用花体字 命令\mathscr
-\usepackage{subfigure}
-\usepackage{booktabs} %使用三横线
-\usepackage{graphicx} %使用\includegraphics 命令插入图片
+\usepackage{bm}        %便捷使用数学模式中的字母
+\usepackage{mathrsfs}  %使用花体字 命令\mathscr
+\usepackage{subfigure} 
+\usepackage{booktabs}  %使用三横线
+\usepackage{graphicx}  %使用\includegraphics 命令插入图片
 \usepackage{float}
-\usepackage{pythonhighlight}
-\usepackage{bookmark}
+\usepackage{url}
+% \usepackage{bookmark}
 
 %====使用字体====%（代码参考https://github.com/OsbertWang/GMCMthesis
 \newif\ifmcm@mac
@@ -134,7 +134,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \hypersetup{
     % hidelinks, %隐藏超链接的炫酷色彩
     colorlinks = true, %开启超链接有颜色
-    linkcolor  = cyan, %设置超链接颜色为青色。
+    linkcolor  = magenta, %cyan, %设置超链接颜色为青色。
     CJKbookmarks = true, %启用书签
     bookmarksopen = true, %字面上是书签展开，但真实功能未知
     bookmarksnumbered = true, %书签标注编号（按计数器标注）
@@ -148,7 +148,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \usepackage[many]{tcolorbox}
 \usepackage{amsthm}
 
-\newtheorem{ans}{{\color{Cerulean}Answer}}[enumi] %answer环境
+% \newtheorem{ans}{{\color{Cerulean}Answer}}[enumi] %answer环境
+\newtheorem{ans}{{\color{Cerulean}Answer}} %answer环境
 \tcolorboxenvironment{ans}{
   boxrule=0pt,
   boxsep=2pt,
@@ -187,6 +188,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   breakable,
 }
 
+\usepackage{pythonhighlight}
+
 
 
 %====预设命令====%
@@ -224,3 +227,5 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         \Large \textbf{\exptitle}        
     \end{center}
 }
+
+\newcommand{\kaitou}{leong kaitou}
