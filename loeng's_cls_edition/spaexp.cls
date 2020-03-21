@@ -37,9 +37,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %%%浮动题标题
 \usepackage{floatrow,caption}
 
-%%%交叉引用
-\usepackage{hyperref}
-
 %%%花里胡哨
 \usepackage[dvipsnames]{xcolor}
 \usepackage[many]{tcolorbox}
@@ -59,6 +56,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %%%三横线
 \usepackage{booktabs}
 
+%%%交叉引用
+\usepackage{hyperref}
+\usepackage{cleveref} % cleveref must be loaded after amsmath!
+\crefname{figure}{Fig.}{Fig.}
+\crefname{equation}{Eq.}{Eq.}
+\crefname{table}{Tbl.}{Tbl.}
 
 %% Document Layout
 
