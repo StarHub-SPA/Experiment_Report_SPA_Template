@@ -8,4 +8,6 @@
 
 ---
 
+如有疑惑或修改意见，欢迎在 [issue](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/issues) 中提出。
+
 >好用不如给颗🌟
