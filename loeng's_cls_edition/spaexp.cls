@@ -192,21 +192,31 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 %% Define new environment and command
 
+%%% prepare color style
+\definecolor{greenline}{RGB}{236, 243, 229}
+\definecolor{greyshadow}{RGB}{191, 191, 191}
+\definecolor{greenlight}{RGB}{228, 246, 212}
+\definecolor{greenhigh}{RGB}{169, 232, 122}
+
 %%% que environment
 \newtheorem{que}{思考题}
 \renewcommand\theque{\arabic{que}.}
 \tcolorboxenvironment{que}{
   boxrule=0pt,
   boxsep=10pt,
-  colback={White!90!Lavender},
+  colback={White!60!greenlight},
   enhanced jigsaw, 
-  borderline east={2pt}{0pt}{Lavender},
-  sharp corners,
+  borderline west={6pt}{3pt}{White!20!greenlight},
+  borderline west={3pt}{0pt}{White!20!greenhigh},
+  borderline south={2pt}{0pt}{Black!30!greenhigh,dotted},
+  sharp corners=southeast,
   before skip=10pt,
-  after skip=2pt,
+  after skip=0pt,
   breakable,
+  shadow={1mm}{-1mm}{0mm}{fill=greyshadow},
+%   shadow={0mm}{-2mm}{0mm}{fill=White!60!greenhigh},
+%   shadow={0mm}{-2mm}{0mm}{fill=greenline},
 }
-
 
 %%% ans 环境
 \newtheorem{ans}{回答} %answer环境
@@ -214,13 +224,14 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \tcolorboxenvironment{ans}{
   boxrule=0pt,
   boxsep=10pt,
-  colback={White!90!Cerulean},
+  colback={White!95!Cerulean},
   enhanced jigsaw, 
-  borderline west={2pt}{0pt}{Cerulean},
-  sharp corners,
-  before skip=2pt,
-  after skip=10pt,
+  borderline west={2pt}{0pt}{White!20!Cerulean},
+  sharp corners=northeast,
+  before skip=0pt,
+  after skip=20pt,
   breakable,
+  shadow={1mm}{-1mm}{0mm}{fill=greyshadow},
 }
 
 %%% q&a environment

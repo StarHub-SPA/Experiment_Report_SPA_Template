@@ -17,6 +17,8 @@
 % 这个宏包中的部分设置参考了：梁伟棠、王本然 的实验模版，以及Adhumunt 的 NotesTeX 在此表示谢意。
 %================================================================================
 
+% Branch: Benature
+
 \ProvidesPackage{spaexptemp}[2019/10/03]
 
 %====check====%
@@ -28,18 +30,21 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 
 %====其他有用的宏包====%
-\usepackage{floatrow}   %图表调节标题位置
-\floatsetup[table]{capposition=top}
-\floatsetup[figure]{capposition=bottom}
+% \usepackage{floatrow} %图表调节标题位置
+% \floatsetup[table]{capposition=top}
+% \floatsetup[figure]{capposition=bottom}
 
-\usepackage{tabularx}   %画均分表格
-\usepackage{amsmath}    %数学
+\usepackage{tabularx}  %画均分表格
+\usepackage{amsmath}   %数学
 \usepackage{amssymb}
-\usepackage{bm}         %便捷使用数学模式中的字母
-\usepackage{mathrsfs}   %使用花体字 命令\mathscr
-\usepackage{subfigure}
-\usepackage{booktabs}   %使用三横线
-\usepackage{graphicx}   %使用\includegraphics 命令插入图片
+\usepackage{bm}        %便捷使用数学模式中的字母
+\usepackage{mathrsfs}  %使用花体字 命令\mathscr
+\usepackage{subfigure} 
+\usepackage{booktabs}  %使用三横线
+\usepackage{graphicx}  %使用\includegraphics 命令插入图片
+\usepackage{float}
+\usepackage{url}
+% \usepackage{bookmark}
 
 %====使用字体====%（代码参考https://github.com/OsbertWang/GMCMthesis
 \newif\ifmcm@mac
@@ -70,10 +75,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \fi
 \fi
 
-
-% \setCJKmainfont[BoldFont = {Songti SC Black}]{Songti SC} %MacOS: 中文字体使用宋体
-% \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
-% \setCJKmainfont[]{SimSun} %中文字体使用宋体
 % \setmainfont{Times New Roman} %英文字体设置为Times New Roman
 \usepackage{fouriernc} %使用fouriernc字体
 
@@ -94,17 +95,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
+\usepackage{appendix}   % 附录(放太前会使得section页眉消失(除了参考文献))
+
 \fancyhf{} %清空默认的页眉/脚
 
 \fancyhead[L]{\heiti \footnotesize \exptitle} %左页眉使用小五黑体显示实验标题。
 \fancyhead[R]{\heiti \footnotesize \leftmark} %右页眉显示section
-\fancyfoot[C]{\heiti \footnotesize 第\textbf{\thepage}页\\共 \pageref*{LastPage} 页} %中页脚显示页数
-
-
-%====浮动体标题====%
-\usepackage{floatrow} %全局设置图标题在下、表标题在上。
-\floatsetup[table]{capposition=top}
-\floatsetup[figure]{capposition=bottom}
+\fancyfoot[C]{\heiti \footnotesize \textbf{\thepage} / \pageref*{LastPage}} %中页脚显示页数
 
 \usepackage{caption} %对于标题属性如：字体、前缀、分隔的设置
 \captionsetup{
@@ -137,7 +134,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \hypersetup{
     % hidelinks, %隐藏超链接的炫酷色彩
     colorlinks = true, %开启超链接有颜色
-    linkcolor  = cyan, %设置超链接颜色为青色。
+    linkcolor  = magenta, %cyan, %设置超链接颜色为青色。
     CJKbookmarks = true, %启用书签
     bookmarksopen = true, %字面上是书签展开，但真实功能未知
     bookmarksnumbered = true, %书签标注编号（按计数器标注）
@@ -149,8 +146,10 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %====特制环境====%
 \usepackage[dvipsnames]{xcolor}
 \usepackage[many]{tcolorbox}
+\usepackage{amsthm}
 
-\newtheorem{ans}{回答}[enumi] %answer环境
+% \newtheorem{ans}{{\color{Cerulean}Answer}}[enumi] %answer环境
+\newtheorem{ans}{{\color{Cerulean}Answer}} %answer环境
 \tcolorboxenvironment{ans}{
   boxrule=0pt,
   boxsep=2pt,
@@ -176,13 +175,29 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   breakable,
 }
 
+\newtheorem*{fea}{} %feature
+\tcolorboxenvironment{fea}{
+  boxrule=0pt,
+  boxsep=2pt,
+  colback={White!90!Gray},
+  enhanced jigsaw, 
+  borderline west={2pt}{0pt}{Gray},
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  breakable,
+}
+
+\usepackage{pythonhighlight}
+
+
 
 %====预设命令====%
-\newcommand{\at}[1]{\renewcommand{\arraystretch}{#1}} %做表格时调节行距便捷一些
-\newcommand{\ct}{\centering} %居中更迅速
-\newcommand{\ar}{\arraybackslash} %tabularx中正确换行的设置
+\newcommand{\at}[1]{\renewcommand{\arraystretch}{#1}}  %做表格时调节行距便捷一些
+\newcommand{\ct}{\centering}                           %居中更迅速
+\newcommand{\ar}{\arraybackslash}                      %tabularx中正确换行的设置
 
-\newcommand{\kaitou}{ %快速完成开头表格
+\newcommand{\header}{ %快速完成开头表格
     \begin{center}
         \at{1.8}
         \begin{tabularx}{0.9 \textwidth}{|*{8}{>{\ct \ar}X|}}
@@ -209,6 +224,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \end{center}
     
     \begin{center}
-        \Large \exptitle
+        \Large \textbf{\exptitle}        
     \end{center}
 }
+
+\newcommand{\kaitou}{leong kaitou}
