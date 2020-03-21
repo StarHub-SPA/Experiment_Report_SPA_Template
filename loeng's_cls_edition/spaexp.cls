@@ -191,19 +191,46 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 
 %% Define new environment and command
+
+%%% que environment
+\newtheorem{que}{思考题}
+\renewcommand\theque{\arabic{que}.}
+\tcolorboxenvironment{que}{
+  boxrule=0pt,
+  boxsep=10pt,
+  colback={White!90!Lavender},
+  enhanced jigsaw, 
+  borderline east={2pt}{0pt}{Lavender},
+  sharp corners,
+  before skip=10pt,
+  after skip=2pt,
+  breakable,
+}
+
+
 %%% ans 环境
-\newtheorem{ans}{回答}[enumi] %answer环境
+\newtheorem{ans}{回答} %answer环境
+\renewcommand\theans{}
 \tcolorboxenvironment{ans}{
   boxrule=0pt,
-  boxsep=2pt,
+  boxsep=10pt,
   colback={White!90!Cerulean},
   enhanced jigsaw, 
   borderline west={2pt}{0pt}{Cerulean},
   sharp corners,
-  before skip=10pt,
+  before skip=2pt,
   after skip=10pt,
   breakable,
 }
+
+%%% q&a environment
+\newenvironment{qna}[1]{
+    \begin{que}
+        #1
+    \end{que}
+    \begin{ans}
+    }{
+    \end{ans}}
 
 %%% conc环境
 \newtheorem{conc}{结论} %conclusion
