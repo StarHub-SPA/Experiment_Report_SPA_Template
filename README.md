@@ -1,11 +1,13 @@
 # Experiment Report SPA Template 实验报告模板
 
-个人信息可以在导言区配置好默认格式
+## 文件目录
 
-```latex
-\newcommand{\ExpTitle}{实验<XXN> <ExperimentName>}
-\newcommand{\stuName}{<Name>}
-\newcommand{\stuID}{<Student ID>}
-```
+- [近代物理实验报告模板-文档类型款](./loeng's_cls_edition) （**推荐！**）
+- [近代物理实验报告模板-宏包款](./loeng's_taste)
+- [大学物理实验报告模板](./basic_physics_lab)
 
-请将`<item>`尖括号包括的字符串替换成自己的个人信息
+---
+
+如有疑惑或修改意见，欢迎在 [issue](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/issues) 中提出。
+
+>好用不如给颗🌟
