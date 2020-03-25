@@ -62,6 +62,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \crefname{figure}{Fig.}{Fig.}
 \crefname{equation}{Eq.}{Eq.}
 \crefname{table}{Tbl.}{Tbl.}
+\crefname{subsection}{小节}{小节}
 
 %% Document Layout
 
@@ -145,7 +146,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \else
 \ifmcm@windows
     \setmonofont[Scale=MatchLowercase]{Courier New}
-    \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
+    % \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
 
     \fi
 \fi
@@ -197,13 +198,14 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 %%% prepare color style
 \definecolor{greenline}{RGB}{236, 243, 229}
+\definecolor{greenbold}{RGB}{68, 140, 39}
 \definecolor{greyshadow}{RGB}{191, 191, 191}
 \definecolor{greenlight}{RGB}{228, 246, 212}
 \definecolor{greenhigh}{RGB}{169, 232, 122}
 
 %%% que environment
-\newtheorem{que}{思考题}
-\renewcommand\theque{\arabic{que}.}
+\newtheorem{que}{{\color{greenbold}思考题}}
+\renewcommand\theque{{\color{greenbold}\arabic{que}.}}
 \tcolorboxenvironment{que}{
   boxrule=0pt,
   boxsep=10pt,
@@ -222,7 +224,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 %%% ans 环境
-\newtheorem{ans}{回答} %answer环境
+\newtheorem{ans}{{\color{Black!20!Cerulean}回答}} %answer环境
+
 \renewcommand\theans{}
 \tcolorboxenvironment{ans}{
   boxrule=0pt,
@@ -242,7 +245,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \begin{que}
         #1
     \end{que}
-    \begin{ans}
+    \begin{ans}\upshape
     }{
     \end{ans}}
 
