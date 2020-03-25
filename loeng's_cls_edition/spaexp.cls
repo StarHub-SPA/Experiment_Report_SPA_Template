@@ -43,6 +43,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 %%%表格
 \usepackage{tabularx}
+\usepackage{longtable}
 
 %%%数学
 \usepackage{amsmath}    %数学
@@ -262,7 +263,39 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   after skip=10pt,
   breakable,
 }
+
+%%% 实验步骤环境
+\newenvironment{step}{\setcounter{move}{1} \at{1.3}
+    \begin{longtable}{@{*}p{0.7\textwidth}||p{0.3\textwidth}@{*}}
+    }{
+    \end{longtable}
+}
+
+\newcommand{\movehead}{% build head of exp step table.
+    \hline\hline
+    \multicolumn{1}{@{*}>{\centering}p{0.7\textwidth}||}{\textbf{操作}}&\textbf{完成情况}\\
+    \hline\hline
+}
+\newcounter{move}%步骤计数器
+\renewcommand\themove{步骤\arabic{move}. }
+\newcommand{\move}[1]{\hspace{4mm}\themove #1 & \stepcounter{move} \\ \hline} %%% step环境里的具体步骤。
+
+%%% 实验记录表格
+\newcommand{\recordhead}{ %快速生成记录信息表头
+    \begin{center}
+        \at{1.5}
+        \begin{tabularx}{0.75\textwidth}{|*{4}{>{\centering\arraybackslash}X|}}
+            \hline
+            数据表格 && 时间 & \\ \hline
+            地点 && 实验台 & \\ \hline
+            操作人 && 记录人 & \\ \hline
+        \end{tabularx}
+    \end{center}
+}
+
+
 %%%命令
+
 \newcommand*{\at}[1]{\renewcommand{\arraystretch}{#1}} %做表格时调节行距便捷一些
 \newcommand{\ct}{\centering} %居中更迅速
 \newcommand{\ar}{\arraybackslash} %tabularx中正确换行的设置
