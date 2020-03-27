@@ -1,29 +1,145 @@
 \documentclass{spaexp}
+
+%下面这几个是报告的信息
 \major{物理学}
-\name{梁伟德}
+\name{StarHub}
 \grade{2017级}
-\stuid{17353038}
-\exptitle{B2}
+\stuid{18353xxx}
+\exptitle{Zzz}
 
 \begin{document}
-     
-\maketitle
-\section{BEGIN}
+\maketitle %生成报告的开头表格。
+\section{背景介绍}
+    这里是一个SPA实验模板（非官方）的简单使用示例。
+    本例子仅仅介绍一些比较常见的用法，供入坑的朋友参考。这个示例的用法推荐是，边看这个pdf，然后一边看 \TeX 源码，对比着来看，
+    然后照葫芦画瓢。这需要一丢丢的 \LaTeX 的基本知识，如果发现自己完全一点也看不懂 \TeX 源码到底在干啥，那么推荐是先迅速看一点
+    写 \LaTeX 的基础知识，推荐《一份不太简短的\LaTeX2e 介绍》。把1.2节看完再加上一些推理能力，相信就能看懂代码了。其他内容
+    可以当作工具书查询，对于使用这个模板并不是刚需。
+    \subsection{问题}
+        噢！模版的使用需要用xeLaTex 引擎进行编译。如果你不知道这个是什么，大部分时候把你编译的工具上的pdflatex 换成xeLaTex 
+        就可以了。至于引擎不引擎的，想知道的看上面那本书的第一章就会有个概念。\par
+        
+        当编译出现问题的时候，首先检查用没用xeLaTex ，其次再找身边的朋友帮忙debug。最后再联系StarHub，我们应该会比较乐意解答你的问题。
+        当然，希望大家互相之间可以学习交流，毕竟跟StarHub联系交流周期长，不利于赶实验报告DDL。
+    \subsection{反馈}
+        如果你在使用了这个模板之后，不管有好的或者不好的感受，都希望能给予我们一些反馈，以便我们开心一下或者更新一下。当然，你要是觉得哪里用的不方便，
+        或者说觉得哪些地方很难看，想改，都可以给我们反馈，我们都会细心聆听。如果是SPA实验课老师认为模板有不符合要求的地方，请务必联系我们。
 
-\begin{qna}{Put the question here}
-    Then put the answer here.\\
-    This is qna environment!
-\end{qna}
+\section{实验原理}
+    这里介绍一些基础功能。交叉引用加上label，然后用autoref 。\autoref{tab:Xtab}
 
+    \subsection{分点}
+        \begin{enumerate}
+            \item 这是带编号的分点环境。
+            \item 还可以俄罗斯套娃
+            \item \begin{enumerate}
+                \item 一套
+            \end{enumerate}
+        \end{enumerate}
 
-\begin{step}
-    \caption{biaoge}\\
-    \movehead
-    \move{打开电脑}
-    \move{关闭电脑}
-    \move{为什么边长了？}
-\end{step}
+        \begin{itemize}
+            \item 这个不带编号
+            \item 也可以套娃。
+        \end{itemize}
 
-\recordhead
+        \begin{description}
+            \item[名词] 这个有点像名词解释
+            \item[叫做] 叫做description环境。
+        \end{description}
 
+    \subsection{表格}
+        \begin{table}[h]
+            \centering
+            \caption{在这里加标题}
+            \begin{tabular}{c|c}
+                \toprule
+                这是个基础普通的表格 & 一些语法可能要查书才会噢。\\
+                \midrule
+                表格使用在\LaTeX 里面较为繁琐 & 大家慢慢学习 \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
+            
+        \begin{table}[h]
+            \centering
+            \caption{这是一个可以控制长度的均分表格}\label{tab:Xtab}
+            \begin{tabularx}{0.85\textwidth}{|X|X|X|}
+                \toprule
+                这是一个叫做tabularx 宏包 & 提供的功能挺方便 & 用法并不难 \\ \hline
+                第一个参数为长度 & 通常为都用页面长度的倍数来表示 & 比如: \verb|0.75\textwidth| \\ \hline
+                更多资料请看 & tabularx & 帮助文档 \\ \hline
+            \end{tabularx}
+        \end{table}
+
+        \begin{longtable}{p{0.7\textwidth}||p{0.3\textwidth}}
+            \caption{这是一个可以跨页的表格}\\
+            \toprule
+            如果数据记录或者什么的表格太长 & 它可以自动跨页排版 \\ \hline
+            & \\ 
+            & \\ 
+            & \\ 
+            & \\ 
+            & \\ 
+            长啊长 & \\
+            & \\ 
+            & \\ 
+            & \\ 
+            & \\ 
+            & \\ 
+            & \\ 
+            & \\ 
+            & \\ 
+            & \\
+            \bottomrule 
+        \end{longtable}
+        \clearpage
+    \subsection{插入图片}
+        \begin{figure}[h]
+            \ct
+            \caption{插入图片的功能}\label{fig:handsomeBOY}
+            \includegraphics[width = 0.5\textwidth]{img/data1.png}
+        \end{figure}
+
+    \subsection{数学公式}
+        作为\LaTeX 的招牌项目我就不仔细展开了。网上很多教程。
+        就粗略总结一下：
+        \begin{description}
+            \item[equation] 普通方程环境
+            \item[align] 递等式，主要是对齐比较好用
+            \item[gather] 几条方程堆在一起，不对齐
+        \end{description}
+    
+\section{实验方案}
+    实验方案这部分，考虑到需要老师对实验报告的要求，整合了一些常用功能。主要是排版审美功力
+    不足，自己都觉得有点丑，大家有更好的设计欢迎提供，说不定就给你更新用上了。（只要有个想法
+    画个图就可以，具体实现我们会尽力的）
+
+    \subsection{xx实验方案}
+        方案思路…………
+
+        \recordhead
+        \begin{step}
+            \movehead
+            \move{打开电脑}
+            \move{关闭电脑}
+            \move{背上书包，立马走人}
+        \end{step}
+
+\section{分析与讨论}
+    \subsection{思考题}
+        模板支持三种环境。
+        \begin{que}
+            这个是问题环境que
+        \end{que}
+        \vspace{2cm}
+        上下是两个独立的环境
+        \vspace{2cm}
+        \begin{ans}
+            这个是回答环境ans
+        \end{ans}
+
+        以及一个qna环境
+        \begin{qna}{这里放问题}
+            这里是回答。
+        \end{qna}
 \end{document}

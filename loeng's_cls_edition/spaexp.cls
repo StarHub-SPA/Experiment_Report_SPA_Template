@@ -47,6 +47,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %%%表格
 \usepackage{tabularx}
 \usepackage{longtable}
+\usepackage{multirow}
 
 %%%数学
 \usepackage{amsmath}    %数学
@@ -260,19 +261,19 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 %%% 实验步骤环境
 \newenvironment{step}{\setcounter{move}{1} \at{1.3}
-    \begin{longtable}{@{*}p{0.7\textwidth}||p{0.3\textwidth}@{*}}
+    \begin{longtable}{p{0.7\textwidth}||p{0.3\textwidth}}
     }{
     \end{longtable}
 }
 
 \newcommand{\movehead}{% build head of exp step table.
     \hline\hline
-    \multicolumn{1}{@{*}>{\centering}p{0.7\textwidth}||}{\textbf{操作}}&\textbf{完成情况}\\
+    \multicolumn{1}{>{\centering}p{0.7\textwidth}||}{\textbf{操作}}&\multicolumn{1}{>{\centering}p{0.3\textwidth}}{\textbf{完成情况}}\\
     \hline\hline
 }
 \newcounter{move}%步骤计数器
 \renewcommand\themove{步骤\arabic{move}. }
-\newcommand{\move}[1]{\hspace{4mm}\themove #1 & \stepcounter{move} \\ \hline} %%% step环境里的具体步骤。
+\newcommand{\move}[1]{\hspace{2mm}\themove\ #1 & \stepcounter{move} \\ \hline} %%% step环境里的具体步骤。
 
 %%% 实验记录表格
 \newcommand{\recordhead}{ %快速生成记录信息表头
@@ -288,11 +289,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 
+
 %%%命令
 
 \newcommand*{\at}[1]{\renewcommand{\arraystretch}{#1}} %做表格时调节行距便捷一些
 \newcommand{\ct}{\centering} %居中更迅速
 \newcommand{\ar}{\arraybackslash} %tabularx中正确换行的设置
+\newcommand*{\ctab}{\centering\arraybackslash} %搞快点就可以
 
 \newcommand*{\name}[1]{\renewcommand{\spaexp@tokens@name}{#1}}
 \newcommand*{\stuid}[1]{\renewcommand{\spaexp@tokens@stuid}{#1}}
@@ -301,3 +304,5 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*{\grade}[1]{\renewcommand{\spaexp@tokens@grade}{#1}}
 \newcommand*{\expdate}[1]{\renewcommand{\spaexp@tokens@expdate}{#1}}
 
+%%%数学符号命令
+\newcommand{\cdeg}{$^{\circ}C$}
