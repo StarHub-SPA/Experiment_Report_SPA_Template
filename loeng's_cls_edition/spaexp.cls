@@ -37,15 +37,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %%%浮动题标题
 \usepackage{floatrow,caption}
 
-%%%交叉引用
-\usepackage{hyperref}
-
 %%%花里胡哨
 \usepackage[dvipsnames]{xcolor}
 \usepackage[many]{tcolorbox}
 
 %%%表格
 \usepackage{tabularx}
+\usepackage{longtable}
 
 %%%数学
 \usepackage{amsmath}    %数学
@@ -59,6 +57,13 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %%%三横线
 \usepackage{booktabs}
 
+%%%交叉引用
+\usepackage{hyperref}
+\usepackage{cleveref} % cleveref must be loaded after amsmath!
+\crefname{figure}{Fig.}{Fig.}
+\crefname{equation}{Eq.}{Eq.}
+\crefname{table}{Tbl.}{Tbl.}
+\crefname{subsection}{小节}{小节}
 
 %% Document Layout
 
@@ -142,7 +147,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \else
 \ifmcm@windows
     \setmonofont[Scale=MatchLowercase]{Courier New}
-    \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
+    % \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
 
     \fi
 \fi
@@ -194,13 +199,14 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 %%% prepare color style
 \definecolor{greenline}{RGB}{236, 243, 229}
+\definecolor{greenbold}{RGB}{68, 140, 39}
 \definecolor{greyshadow}{RGB}{191, 191, 191}
 \definecolor{greenlight}{RGB}{228, 246, 212}
 \definecolor{greenhigh}{RGB}{169, 232, 122}
 
 %%% que environment
-\newtheorem{que}{思考题}
-\renewcommand\theque{\arabic{que}.}
+\newtheorem{que}{{\color{greenbold}思考题}}
+\renewcommand\theque{{\color{greenbold}\arabic{que}.}}
 \tcolorboxenvironment{que}{
   boxrule=0pt,
   boxsep=10pt,
@@ -219,7 +225,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 %%% ans 环境
-\newtheorem{ans}{回答} %answer环境
+\newtheorem{ans}{{\color{Black!20!Cerulean}回答}} %answer环境
+
 \renewcommand\theans{}
 \tcolorboxenvironment{ans}{
   boxrule=0pt,
@@ -239,7 +246,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \begin{que}
         #1
     \end{que}
-    \begin{ans}
+    \begin{ans}\upshape
     }{
     \end{ans}}
 
@@ -256,7 +263,39 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   after skip=10pt,
   breakable,
 }
+
+%%% 实验步骤环境
+\newenvironment{step}{\setcounter{move}{1} \at{1.3}
+    \begin{longtable}{@{*}p{0.7\textwidth}||p{0.3\textwidth}@{*}}
+    }{
+    \end{longtable}
+}
+
+\newcommand{\movehead}{% build head of exp step table.
+    \hline\hline
+    \multicolumn{1}{@{*}>{\centering}p{0.7\textwidth}||}{\textbf{操作}}&\textbf{完成情况}\\
+    \hline\hline
+}
+\newcounter{move}%步骤计数器
+\renewcommand\themove{步骤\arabic{move}. }
+\newcommand{\move}[1]{\hspace{4mm}\themove #1 & \stepcounter{move} \\ \hline} %%% step环境里的具体步骤。
+
+%%% 实验记录表格
+\newcommand{\recordhead}{ %快速生成记录信息表头
+    \begin{center}
+        \at{1.5}
+        \begin{tabularx}{0.75\textwidth}{|*{4}{>{\centering\arraybackslash}X|}}
+            \hline
+            数据表格 && 时间 & \\ \hline
+            地点 && 实验台 & \\ \hline
+            操作人 && 记录人 & \\ \hline
+        \end{tabularx}
+    \end{center}
+}
+
+
 %%%命令
+
 \newcommand*{\at}[1]{\renewcommand{\arraystretch}{#1}} %做表格时调节行距便捷一些
 \newcommand{\ct}{\centering} %居中更迅速
 \newcommand{\ar}{\arraybackslash} %tabularx中正确换行的设置
