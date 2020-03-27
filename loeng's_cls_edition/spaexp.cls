@@ -265,20 +265,41 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 %%% 实验步骤环境
+% \usepackage{array}
 \newenvironment{step}{\setcounter{move}{1} \at{1.3}
-    \begin{longtable}{@{*}p{0.7\textwidth}||p{0.2\textwidth}@{*}}
+    \begin{longtable}{@{*}m{1cm}<{\centering}|m{0.7\textwidth}||m{2cm}@{*}}
     }{
     \end{longtable}
 }
 
 \newcommand{\movehead}{% build head of exp step table.
     \hline\hline
-    \multicolumn{1}{@{*}>{\centering}p{0.7\textwidth}||}{\textbf{操作}}&\multicolumn{1}{c@{*}}{\textbf{完成情况}}\\
+        \hspace{1mm}\textbf{步骤}&
+        \multicolumn{1}{>{\centering}p{0.7\textwidth}||}{\textbf{操作}}&
+        \hspace{1mm}\textbf{完成情况}\\
     \hline\hline
 }
 \newcounter{move}%步骤计数器
-\renewcommand\themove{步骤\arabic{move}. }
-\newcommand{\move}[1]{\hspace{4mm}\themove #1 & \stepcounter{move} \\ \hline} %%% step环境里的具体步骤。
+\renewcommand\themove{\arabic{move}}
+\newcommand{\move}[1]{
+    {\hspace{1mm}\themove}
+    & #1 & \stepcounter{move} \\ \hline} %%% step环境里的具体步骤。
+
+% \newenvironment{step}{\setcounter{move}{1} \at{1.3}
+%     \begin{longtable}{@{*}|p{0.7\textwidth}||p{0.15\textwidth}@{*}}
+%     }{
+%     \end{longtable}
+% }
+
+% \newcommand{\movehead}{% build head of exp step table.
+%     \hline\hline
+%     \multicolumn{1}{@{*}>{\centering}p{0.7\textwidth}||}{\textbf{操作}}&\multicolumn{1}{c@{*}}{\textbf{完成情况}}\\
+%     \hline\hline
+% }
+% \newcounter{move}%步骤计数器
+% \renewcommand\themove{步骤\arabic{move}. }
+% \newcommand{\move}[1]{\hspace{4mm}\themove #1 & \stepcounter{move} \\ \hline} %%% step环境里的具体步骤。
+
 
 %%% 实验记录表格
 \newcommand{\recordhead}{ %快速生成记录信息表头

@@ -20,3 +20,8 @@ Experiment Report SPA Template
 如有疑惑或修改意见，欢迎在 [issue](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/issues) 中提出。
 
 >好用不如给颗🌟
+
+## 更新日志
+
+- update:  数据记录表格边缘星号*竖直居中+步骤单独一列  @Benature-2019/03/27
+- update:  增加`recordheadplane`命令：横版实验数据记录表头  @Benature-2019/03/26
