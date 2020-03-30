@@ -44,6 +44,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %%%表格
 \usepackage{tabularx}
 \usepackage{longtable}
+\usepackage{multirow}
 
 %%%数学
 \usepackage{amsmath}    %数学
@@ -343,6 +344,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 
 
+
 %%%命令
 
 \newcommand*{\at}[1]{\renewcommand{\arraystretch}{#1}} %做表格时调节行距便捷一些
@@ -357,3 +359,5 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*{\grade}[1]{\renewcommand{\spaexp@tokens@grade}{#1}}
 \newcommand*{\expdate}[1]{\renewcommand{\spaexp@tokens@expdate}{#1}}
 
+%%%数学符号命令
+\newcommand{\cdeg}{$^{\circ}C$}
