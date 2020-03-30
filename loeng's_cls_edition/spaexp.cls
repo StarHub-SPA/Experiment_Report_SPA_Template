@@ -1,7 +1,7 @@
 %Identifications
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{spaexp}
-[2020/02/21 SPA physics experiment template non-official edition v1.0 ]
+\RequirePackage{expl3}
+\ProvidesExplClass{spaexp}{2020/02/21}{1.0}{SPA physics experiment template non-official edition}
 
 % Preliminary declarations
 %% tokens deifition
@@ -114,45 +114,61 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %%%计数器
 \numberwithin{equation}{section} % 公式按章节分
 
-%%%设置字体
+%%%设置标点
 \ctexset{
     punct = banjiao%使用半角标点符号
 }
 
-\newif\ifmcm@mac    %（代码参考https://github.com/OsbertWang/GMCMthesis 这个是OsbertWang，修正支持让各个系统自适应支持近似字体。)
-\newif\ifmcm@windows % 简单设置会有 warning， 待完善吧。
-% \newif\ifmcm@fandol
-
-\@ifclasslater{ctexart}{}{
-  \newcommand\mcm@strifeq{\csname str_if_eq_x:nnTF\endcsname}
-  \newcommand\mcm@fontset{\csname g__ctex_fontset_tl\endcsname}
-  \mcm@strifeq{\mcm@fontset}{mac}{\mcm@mactrue}{}
-  \mcm@strifeq{\mcm@fontset}{windows}{\mcm@windowstrue}{}
-%   \mcm@strifeq{\mcm@fontset}{fandol}{\mcm@fandoltrue}{}
-}{
-  \mcm@windowstrue
-}
-
-\setmainfont{Times New Roman}
+%%%字体设定
+\setmainfont{Times~New~Roman}
 \setsansfont{Arial}
-\ifmcm@mac
-    \setmonofont[Scale=MatchLowercase]{Menlo}
-    \setCJKmainfont[BoldFont = {Songti SC Black}]{Songti SC} %MacOS: 中文字体使用宋体
+\usepackage{fouriernc}
 
-\else
-\ifmcm@windows
-    \setmonofont[Scale=MatchLowercase]{Courier New}
+\str_if_eq:onTF{\g__ctex_fontset_tl}{windows}
+  {
+    %判定为 Windows 系统
+    \setmonofont[Scale=MatchLowercase]{Courier~New}
     \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
+  }
+  {
+    %判定为非 Windows 系统
+    \setmonofont[Scale=MatchLowercase]{Menlo}
+    \setCJKmainfont[BoldFont = {Songti~SC~Black}]{Songti~SC} %MacOS: 中文字体使用宋体
+  }
+% \newif\ifmcm@mac    %（代码参考https://github.com/OsbertWang/GMCMthesis 这个是OsbertWang，修正支持让各个系统自适应支持近似字体。)
+% \newif\ifmcm@windows % 简单设置会有 warning， 待完善吧。
+% % \newif\ifmcm@fandol
 
-    \fi
-\fi
+% \@ifclasslater{ctexart}{}{
+%   \newcommand\mcm@strifeq{\csname str_if_eq_x:nnTF\endcsname}
+%   \newcommand\mcm@fontset{\csname g__ctex_fontset_tl\endcsname}
+%   \mcm@strifeq{\mcm@fontset}{mac}{\mcm@mactrue}{}
+%   \mcm@strifeq{\mcm@fontset}{windows}{\mcm@windowstrue}{}
+% %   \mcm@strifeq{\mcm@fontset}{fandol}{\mcm@fandoltrue}{}
+% }{
+%   \mcm@windowstrue
+% }
+
+% \setmainfont{Times~New~Roman}
+% \setsansfont{Arial}
+% \ifmcm@mac
+%     \setmonofont[Scale=MatchLowercase]{Menlo}
+%     \setCJKmainfont[BoldFont = {Songti SC Black}]{Songti SC} %MacOS: 中文字体使用宋体
+
+% \else
+% \ifmcm@windows
+%     \setmonofont[Scale=MatchLowercase]{Courier New}
+%     \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
+
+%     \fi
+% \fi
 
 
 % \setCJKmainfont[BoldFont = {Songti SC Black}]{Songti SC} %MacOS: 中文字体使用宋体
 % \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
 % \setCJKmainfont[]{SimSun} %中文字体使用宋体
 % \setmainfont{Times New Roman} %英文字体设置为Times New Roman
-\usepackage{fouriernc} %使用fouriernc字体
+% \usepackage{fouriernc} %使用fouriernc字体
 
 
 %% Document Markup
@@ -222,6 +238,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \newcommand*{\at}[1]{\renewcommand{\arraystretch}{#1}} %做表格时调节行距便捷一些
 \newcommand{\ct}{\centering} %居中更迅速
 \newcommand{\ar}{\arraybackslash} %tabularx中正确换行的设置
+\newcommand*{\ctab}{\centering\arraybackslash} %搞快点就可以
 
 \newcommand*{\name}[1]{\renewcommand{\spaexp@tokens@name}{#1}}
 \newcommand*{\stuid}[1]{\renewcommand{\spaexp@tokens@stuid}{#1}}
