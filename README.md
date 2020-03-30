@@ -23,6 +23,7 @@ Experiment Report SPA Template
 
 ## 更新日志
 
+- feature: 利用LaTeX3实现操作系统判定。
 - update:  数据记录表格边缘星号*竖直居中+步骤单独一列  @Benature-2019/03/27
 - update:  增加`recordheadplane`命令：横版实验数据记录表头  @Benature-2019/03/26
 - feature: 增加实验记录信息表格 `\recordhead` @Loeng-2019/03/26
