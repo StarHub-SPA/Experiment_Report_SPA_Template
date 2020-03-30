@@ -135,7 +135,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   {
     %判定为 Windows 系统
     \setmonofont[Scale=MatchLowercase]{Courier~New}
-    \setCJKmainfont{simsun.ttc} %Windows: 中文字体使用宋体
+    \setCJKmainfont{SimSun} %Windows: 中文字体使用宋体
   }
   {
     %判定为非 Windows 系统
