@@ -23,5 +23,5 @@ Experiment Report SPA Template
 
 ## 更新日志
 
-- update:  数据记录表格边缘星号*竖直居中+步骤单独一列  @Benature-2019/03/27
+- update:  实验步骤`step`边缘星号*竖直居中+步骤单独一列  @Benature-2019/03/27
 - update:  增加`recordheadplane`命令：横版实验数据记录表头  @Benature-2019/03/26
