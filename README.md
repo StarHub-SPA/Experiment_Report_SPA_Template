@@ -1,14 +1,33 @@
-<a href="https://benature.github.io/"><img src="doc/starhub.png" width="300" align="right"></a>
+<a href="https://benature.github.io/"><img src="img/starhub.png" width="300" align="right"></a>
 
 # 实验报告模板
 
 Experiment Report SPA Template
 
-## 文件目录
+![GitHub contributors](https://img.shields.io/github/contributors/StarHub-SPA/Experiment_Report_SPA_Template)
+![GitHub stars](https://img.shields.io/github/stars/StarHub-SPA/Experiment_Report_SPA_Template?style=flat)
 
-- [近代物理实验报告模板-文档类型款](./loeng's_cls_edition) （**推荐！**）
-- [近代物理实验报告模板-宏包款](./loeng's_taste)
-- [大学物理实验报告模板](./basic_physics_lab)
+## 使用说明
+
+### 下载模板
+
+1. clone: 以下两个命令二选一即可  
+
+   ```shell
+   git clone git@github.com:StarHub-SPA/Experiment_Report_SPA_Template.git
+   git clone https://github.com/StarHub-SPA/Experiment_Report_SPA_Template
+   ```
+
+   优点：方便版本更新
+
+2. 直接下载[`cls`文件](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/blob/master/spaexp.cls)
+   优点：小白友好
+
+### 模板使用
+
+参考[`example.tex`](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/blob/master/example.tex)，里面已经有较为详细的说明，在此不再赘述。
+
+编译效果如[`example.pdf`](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/blob/master/example.pdf)所示。
 
 ## 开发分支（先行版）
 
@@ -17,9 +36,15 @@ Experiment Report SPA Template
 
 ---
 
-如有疑惑或修改意见，欢迎在 [issue](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/issues) 中提出。
+⭐️**StarHub** 出品
+
+如有疑惑或修改意见，欢迎在 [issue](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/issues) 中提出（推荐），或者邮件联系作者 <StarHub@qun.mail.163.com>.
+
+当然，也欢迎和我们一起开发模板，让实验报告写得更顺手、更好看。
 
 >好用不如给颗🌟
+
+---
 
 ## 更新日志
 
