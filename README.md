@@ -20,7 +20,7 @@ Experiment Report SPA Template
 
    优点：方便版本更新
 
-2. 直接下载[`cls`文件](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/blob/master/spaexp.cls)
+2. 直接下载[`cls`文件](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/blob/master/spaexp.cls)  
    优点：小白友好
 
 ### 模板使用
@@ -54,4 +54,4 @@ Experiment Report SPA Template
 - feature: 增加实验记录信息表格 `\recordhead` @Loeng-2019/03/26
 - feature: 增加实验步骤表格环境 `step` @Loeng-2019/03/26
 - update:  `qna` 思考题环境(Q&A)样式修改 @Benature-2019/03/21
-- feature: 增加 `qna` 思考题环境(Q&A) @Loeng-2019/03/21"
+- feature: 增加 `qna` 思考题环境(Q&A) @Loeng-2019/03/21
