@@ -31,6 +31,14 @@ Experiment Report SPA Template
 
 编译效果如[`example.pdf`](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/blob/master/example.pdf)所示。
 
+### 其他
+
+关于 LaTeX 的表格代码，若是纯手写会比较繁琐，可以用 pypi 安装`AutoLaTeX`来减少工作量，详见 <https://github.com/Benature/AutoLaTeX>。
+
+```shell
+pip install autolatex
+```
+
 ## 开发分支（先行版）
 
 - [Loeng](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/tree/loeng)
