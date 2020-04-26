@@ -180,6 +180,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 
 %% Document Markup
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}  
 
 %%% 标题 maketitle
 \renewcommand{\maketitle}{
@@ -198,11 +199,11 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
         \at{1.3}
         \begin{tabularx}{0.9 \textwidth}{|p{2cm}<{\ct}|p{4.5cm}<{\ct}|p{3cm}<{\ct}|X<{\ct}|}
             \hline
-            {专业}： & {\spaexp@tokens@major} & {年级：}   & {\spaexp@tokens@grade} \\
+            {专业}： & \tabincell{c}{\spaexp@tokens@major} & {年级：}   & \tabincell{c}{\spaexp@tokens@grade} \\
             \hline
-            {姓名：} & {\spaexp@tokens@name}  & {学号：}   & {\spaexp@tokens@stuid} \\
+            {姓名：} & \tabincell{c}{\spaexp@tokens@name} & {学号：}   & \tabincell{c}{\spaexp@tokens@stuid} \\
             \hline
-            {日期：} & {\spaexp@tokens@expdate} & {教师签名：}& \\
+            {日期：} & \tabincell{c}{\spaexp@tokens@expdate} & {教师签名：}& \\
             \hline
             \specialrule{0em}{0.6cm}{0cm}
         \end{tabularx}
@@ -215,7 +216,6 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 
 %% Define new environment and command
-
 %%% prepare color style
 \definecolor{greenline}{RGB}{236, 243, 229}
 \definecolor{greenbold}{RGB}{68, 140, 39}
@@ -265,7 +265,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     \begin{que}
         #1
     \end{que}
-    \begin{ans}\upshape
+    \begin{ans}
+        ~\upshape
     }{
     \end{ans}}
 
@@ -334,7 +335,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 }
 \newcommand{\recordheadplane}{ %快速生成记录信息表头
     \begin{center}
-        \at{1.5}
+        \at{1.3}
         \begin{tabularx}{0.95\textwidth}{|*{6}{>{\centering\arraybackslash}X|}}
             \hline
             数据表格 && 地点 && 操作人员&\\ \hline

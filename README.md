@@ -50,7 +50,8 @@ pip install autolatex
 
 ⭐️**StarHub** 出品
 
-如有疑惑或修改意见，欢迎在 [issue](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/issues) 中提出（推荐），或者邮件联系作者 <StarHub@qun.mail.163.com>.
+如有疑惑或修改意见，欢迎在 [issue](https://github.com/StarHub-SPA/Experiment_Report_SPA_Template/issues) 中提出（推荐），或者邮件联系作者 <StarHub@qun.mail.163.com>.  
+> [关于 issue 是什么](https://www.notion.so/benature/Issue-aafd379ec9ef4801a61078179cf667d7)
 
 当然，也欢迎和我们一起开发模板，让实验报告写得更顺手、更好看。
 
@@ -60,10 +61,12 @@ pip install autolatex
 
 ## 更新日志
 
-- feature: 实现操作系统判定。 @Loeng-2019/03/31
-- update:  实验步骤`step`边缘星号`*`竖直居中+步骤单独一列  @Benature-2019/03/27
-- update:  增加`recordheadplane`命令：横版实验数据记录表头  @Benature-2019/03/26
-- feature: 增加实验记录信息表格 `\recordhead` @Loeng-2019/03/26
-- feature: 增加实验步骤表格环境 `step` @Loeng-2019/03/26
-- update:  `qna` 思考题环境(Q&A)样式设计 @Benature-2019/03/21
-- feature: 增加 `qna` 思考题环境(Q&A) @Loeng-2019/03/21
+- feature: 实验表头内容支持换行符`\\` @**Benature**-2019/04/03
+- feature: 实现操作系统判定。 @**Loeng**-2019/03/31
+- update:  实验步骤`step`边缘星号`*`竖直居中+步骤单独一列  @**Benature**-2019/03/27
+- update:  增加`recordheadplane`命令：横版实验数据记录表头  @**Benature**-2019/03/26
+- feature: 增加实验记录信息表格 `\recordhead` @**Loeng**-2019/03/26
+- feature: 增加实验步骤表格环境 `step` @**Loeng**-2019/03/26
+- update:  `qna` 思考题环境(Q&A)样式设计 @**Benature**-2019/03/21
+- feature: 增加 `qna` 思考题环境(Q&A) @**Loeng**-2019/03/21
+
