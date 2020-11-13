@@ -113,6 +113,8 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     % hidelinks, %隐藏超链接的炫酷色彩
     colorlinks = true, %开启超链接有颜色
     linkcolor  = cyan, %设置超链接颜色为青色。
+    anchorcolor=blue,
+    citecolor=cyan,
     CJKbookmarks = true, %启用书签
     bookmarksopen = true, %字面上是书签展开，但真实功能未知
     bookmarksnumbered = true, %书签标注编号（按计数器标注）
@@ -362,3 +364,4 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
 %%%数学符号命令
 \newcommand{\cdeg}{$^{\circ}C$}
+\def\mm{{\mathrm{mm}}}
